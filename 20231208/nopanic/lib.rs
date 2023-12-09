@@ -1,4 +1,4 @@
 #[panic_handler]
-fn panic(_: &core::panic::PanicInfo<'_>) -> ! {
+pub fn panic(_: &core::panic::PanicInfo<'_>) -> ! {
     loop {}
 }

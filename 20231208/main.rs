@@ -1,5 +1,6 @@
+use nopanic;
 
-pub fn main() -> !
+fn main() -> !
 {
     loop {}
 }
