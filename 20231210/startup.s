@@ -31,7 +31,7 @@ Default_Handler:
     b .
     .size Default_Handler, . - Default_Handler
 
-    .section .isr_vector
+    .section .isr_vector,"a",%progbits
     .type __ISR_VECTOR, %object
 __ISR_VECTOR:
     .word 0                             /* 0x0000 0000 */
