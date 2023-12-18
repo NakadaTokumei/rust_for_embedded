@@ -1,4 +1,4 @@
-ENTRY(main)
+ENTRY(Reset_Handler)
 
 MEMORY
 {
@@ -19,7 +19,7 @@ SECTIONS
     {
         . = ALIGN(4);
         *(.text)
-
+        *(.text.*)
         _etext = .;
     } >ROM
 
@@ -29,6 +29,24 @@ SECTIONS
         *(.rodata)
         . = ALIGN(4);
     } >ROM
+
+    .ARM.extab :
+    {
+        . = ALIGN(4);
+        *(.ARM.extab* .gnu.linkonce.armxtab.*)
+        . = ALIGN(4);
+    } >ROM
+
+    .ARM :
+    {
+        . = ALIGN(4);
+        __exidx_start = .;
+        *(.ARM.exidx*)
+        __exidx_end = .;
+        . = ALIGN(4);
+    } >ROM
+
+    _sidata = LOADADDR(.data);
 
     .data :
     {
