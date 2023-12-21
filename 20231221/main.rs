@@ -1,4 +1,5 @@
 use nopanic;
+use manna::peripheral::core::nvic;
 
 #[no_mangle]
 pub extern "C" fn TIM6_Handler()
@@ -10,9 +11,9 @@ pub extern "C" fn TIM6_Handler()
 #[no_mangle]
 pub extern "C" fn main() -> !
 {
-    let mut _a : u32 = 0;
+    let mut _nvic = nvic::get_nvic();
     loop 
     {
-        _a+=1;
+        _nvic.ISER[0].write(1);
     }
 }
