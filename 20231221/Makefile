@@ -26,7 +26,7 @@ test.hex: test.elf
 	$(OBJCOPY) -O ihex $^ $@
 
 test.elf: main.o $(ASM_OBJS)
-	$(LD) -T stm32f103rbt6.ld $^ manna.o -o $@
+	$(LD) -T stm32f103rbt6.ld $^ manna/manna.o nopanic/nopanic.o -o $@
 
 main.o: main.rs
 	$(RUSTC) $(RUSTC_FLAGS) 	\
