@@ -12,11 +12,13 @@
     .word _edata
     .word _sbss
     .word _ebss
+    .word _estack
 
     .section .text.Reset_Handler
     .weak Reset_Handler
     .type Reset_Handler, %function
 Reset_Handler:
+    ldr sp, =_estack
     /* Init Memory */
     bl memoryInit
     /* Main function */

@@ -1,5 +1,7 @@
 ENTRY(Reset_Handler)
 
+_estack = 0x20005000;
+
 MEMORY
 {
     RAM (xrw) : ORIGIN = 0x20000000, LENGTH = 20K
